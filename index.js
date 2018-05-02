@@ -6,10 +6,6 @@ function nestedTarget() {
   return getFirstSelector('#nested').querySelector('.target')
 }
 
-function deepestChild() {
-
-}
-
 function increaseRankBy(n) {
   var all = document.querySelectorAll('.ranked-list');
   var rList = [];
@@ -21,4 +17,30 @@ function increaseRankBy(n) {
     }
     console.log(i);
   }
+}
+
+function deepestChild() {
+  var GN = getFirstSelector('#grand-node');
+  var current = GN;
+    while (next != 'null') {
+      current = next;
+      next = current.querySelector('div')
+    }
+}
+
+function find(array, criteriaFn) {
+  let current = array
+  let next = []
+  while (current) {
+    if (criteriaFn(current)) {
+      return current
+    }
+    if (Array.isArray(current)) {
+      for (let i = 0; i < current.length; i++) {
+        next.push(current[i])
+      }
+    }
+    current = next.shift()
+  }
+  return null
 }
