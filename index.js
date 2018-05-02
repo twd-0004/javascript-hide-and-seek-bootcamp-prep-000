@@ -25,7 +25,8 @@ function deepestChild() {
   var next = GN;
     while (next != 'null') {
       current = next;
-      next = current.querySelector('div')
+      next = current.querySelector('div');
+      consol.log(current, next)
     }
 }
 
